@@ -1,6 +1,6 @@
-const {Goods} = require('../db')
+const {Goods: GetGoods} = require('../db')
 module.exports = async (ctx, next) => {
-  let list = await Goods.find()
+  let list = await GetGoods.find()
   ctx.body = {
     code: 0,
     data: {
