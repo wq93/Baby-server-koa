@@ -5,20 +5,20 @@ const mongoose = require('mongoose');
 const db = mongoose.connection;
 // 取数据库模型
 const Goods = require('./models/goods')
+const Users = require('./models/users')
 // 连接mongoDB数据库
-mongoose.connect('mongodb://127.0.0.1:27017/dumall')
+mongoose.connect('mongodb://127.0.0.1:27017/wangqi')
 
-mongoose.connection
-  .on("connected", function () {
-    console.log("MongoDB connected sucess")
-  })
-  .on("error", function () {
-    console.log("MongoDB connected error")
-  })
-  .on("disconnected", function () {
-    console.log("MongoDB connected disconnected")
-  })
+db.on("connected", function () {
+  console.log("MongoDB connected sucess")
+})
+db.on("error", function () {
+  console.log("MongoDB connected error")
+})
+db.on("disconnected", function () {
+  console.log("MongoDB connected disconnected")
+})
 
 module.exports = {
-  Goods
+  Goods, Users
 }
