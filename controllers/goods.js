@@ -1,5 +1,10 @@
 const {Goods} = require('../db')
 module.exports = async (ctx, next) => {
+  console.log('goods')
   let list = await Goods.find()
-  ctx.body = list.length ? list : '暂无数据'
+  ctx.body = {
+    code: 0,
+    list,
+    msg: '1'
+  }
 }
