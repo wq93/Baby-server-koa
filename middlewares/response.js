@@ -5,7 +5,6 @@
  */
 module.exports = async function (ctx, next) {
   try {
-    console.log('1')
     // 调用下一个 middleware
     await next()
     // 处理响应结果
@@ -16,7 +15,6 @@ module.exports = async function (ctx, next) {
       code: ctx.state.code !== undefined ? ctx.state.code : 0,
       data: ctx.state.data !== undefined ? ctx.state.data : {}
     }
-    console.log('2')
   } catch (e) {
     // catch 住全局的错误信息
     // debug('Catch Error: %o', e)

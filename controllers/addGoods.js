@@ -1,12 +1,12 @@
 const {Goods} = require('../db')
-
+const config = require('../config')
 module.exports = async (ctx) => {
   const {displayName, type, count, price, source, remark} = ctx.request.body
   const uuid = `good_${(new Date()).valueOf()}`
   if (displayName && type) {
     try {
       // 避免重复添加
-      const findGood = await Goods.find({displayName})
+      const findGood = await config.findList(Goods, {displayName})
       if (findGood.length) {
         ctx.state = {
           code: -3,
