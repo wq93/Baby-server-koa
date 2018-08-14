@@ -2,7 +2,7 @@ const Koa = require('koa');
 const app = new Koa();
 const bodyParser = require('koa-bodyparser')
 // 引入路由分发
-const router = require('./routes')
+const router = require('./routes/index')
 const config = require('./config')
 const response = require('./middlewares/response')
 

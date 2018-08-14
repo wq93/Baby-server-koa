@@ -11,6 +11,7 @@
   "dependencies": {
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
+    "koa-multer": "^1.0.2",
     "koa-router": "7.4.0",
     "monk": "^6.0.6"
   },
