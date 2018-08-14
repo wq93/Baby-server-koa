@@ -5,7 +5,7 @@ var Schema = mongoose.Schema
 var produtSchema = new Schema({
   'uuid': {type: String}, // id
   'displayName': String, // 名称
-  'type': Number, // 类别 1:日用品 2:洗簌 3:出行
+  'type': String, // 类别 1:日用品 2:洗簌 3:出行
   'count': Number, // 数量
   'price': Number, // 价格
   'source': String, // 来源
