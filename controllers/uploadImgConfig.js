@@ -1,4 +1,5 @@
 const multer = require('koa-multer');//加载koa-multer模块
+const config = require('../config')
 //文件上传
 //配置
 const storage = multer.diskStorage({
@@ -6,11 +7,11 @@ const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/images/')
   },
-  //修改文件名称
+  // 修改文件名称
   filename: function (req, file, cb) {
-    console.log(file)
-    const fileFormat = (file.originalname).split(".");
-    cb(null, fileFormat[0] + '❤' + Date.now() + "." + fileFormat[fileFormat.length - 1])
+    const fileFormat = (file.originalname).split(".")
+    // 拼上时间戳防止服务器图片名重复
+    cb(null, fileFormat[0] + config.splitMark + Date.now() + "." + fileFormat[fileFormat.length - 1])
   }
 })
 //加载配置

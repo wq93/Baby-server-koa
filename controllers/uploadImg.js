@@ -1,5 +1,39 @@
+const {Images} = require('../db')
+const config = require('../config')
+
 module.exports = async (ctx, next) => {
-  ctx.body = {
-    filename: ctx.req.file.filename//返回文件名
-  } // 上传图片
+  const {uploadedBy, described} = ctx.req.body
+  const uploadedTime = parseInt(ctx.req.body.uploadedTime)
+  const uuid = `image_${Date.now()}`
+  const file = ctx.req.file
+  const imageName = file.filename.split(config.splitMark)[0]
+  const imageURL = config.baseImageURL + file.filename
+
+  if (file && uploadedBy) {
+// 创建新数据
+    try {
+      let image = new Images({uploadedBy, uploadedTime, described, uuid, imageName, imageURL})
+      await image.save()
+      ctx.state = {
+        code: 0,
+        data: {
+          image,
+          msg: 'success',
+        }
+      }
+    } catch (e) {
+      ctx.state = {
+        code: -1,
+        data: {
+          errorInfo: e,
+          msg: '添加失败'
+        },
+      }
+    }
+  } else {
+    ctx.state = {
+      code: -6,
+      data: {msg: '请上传照片和填写上传者!'},
+    }
+  }
 }

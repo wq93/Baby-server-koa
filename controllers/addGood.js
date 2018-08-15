@@ -2,7 +2,7 @@ const {Goods} = require('../db')
 const config = require('../config')
 module.exports = async (ctx) => {
   const {displayName, type, count, price, source, remark} = ctx.request.body
-  const uuid = `good_${(new Date()).valueOf()}`
+  const uuid = `good_${Date.now()}`
   if (displayName && type) {
     try {
       // 避免重复添加

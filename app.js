@@ -12,5 +12,6 @@ app.use(serve('public')) //
   .use(response)
   .use(bodyParser())// 解析请求体
   .use(router.routes()) // 路由分发
+  .use(router.allowedMethods())
   .listen(config.port, () => console.log(`listening on port ${config.port}`))
 // 启动程序，监听端口

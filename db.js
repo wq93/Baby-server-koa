@@ -6,6 +6,7 @@ const db = mongoose.connection;
 // 取数据库模型
 const Goods = require('./models/goods')
 const Users = require('./models/users')
+const Images = require('./models/images')
 // 连接mongoDB数据库
 mongoose.connect('mongodb://127.0.0.1:27017/wangqi')
 
@@ -20,5 +21,5 @@ db.on("disconnected", function () {
 })
 
 module.exports = {
-  Goods, Users
+  Goods, Users, Images
 }
