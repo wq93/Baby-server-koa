@@ -19,6 +19,5 @@ module.exports = async (ctx, next) => {
       total: filterList.length,
       msg: list.length ? 'success' : '暂无数据'
     }
-
   }
 }
