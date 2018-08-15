@@ -2,15 +2,15 @@ const {Images} = require('../db')
 const config = require('../config')
 
 module.exports = async (ctx, next) => {
-  const {uploadedBy, described} = ctx.req.body
-  const uploadedTime = parseInt(ctx.req.body.uploadedTime)
-  const uuid = `image_${Date.now()}`
   const file = ctx.req.file
-  const imageName = file.filename.split(config.splitMark)[0]
-  const imageURL = config.baseImageURL + file.filename
+  const {uploadedBy, described} = ctx.req.body
 
   if (file && uploadedBy) {
-// 创建新数据
+    const uploadedTime = parseInt(ctx.req.body.uploadedTime)
+    const uuid = `image_${Date.now()}`
+    const imageName = file.filename.split(config.splitMark)[0]
+    const imageURL = config.baseImageURL + file.filename
+    // 创建新数据
     try {
       let image = new Images({uploadedBy, uploadedTime, described, uuid, imageName, imageURL})
       await image.save()
@@ -26,7 +26,7 @@ module.exports = async (ctx, next) => {
         code: -1,
         data: {
           errorInfo: e,
-          msg: '添加失败'
+          msg: '失败'
         },
       }
     }

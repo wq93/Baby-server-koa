@@ -1,8 +1,8 @@
 /********************访问数据库的实现方式************************/
 const {Images} = require('../db')
 module.exports = async (ctx, next) => {
-  let list = await Images.find()
   try {
+    let list = await Images.find()
     ctx.body = {
       code: 0,
       data: {
