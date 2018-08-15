@@ -10,7 +10,13 @@ module.exports = async (ctx, next) => {
     filterList = await GetGoods.find({'displayName': query})
     list = await GetGoods.find({'displayName': query}).skip(skip).limit(limit).sort({'type': sort})
   } catch (e) {
-
+    ctx.state = {
+      code: -1,
+      data: {
+        errorInfo: e,
+        msg: '失败'
+      },
+    }
   }
   ctx.body = {
     code: 0,
