@@ -14,6 +14,10 @@ router.put('/updateGood', controllers.updateGood) // 编辑商品
 
 router.post('/uploadImg', controllers.uploadImgConfig, controllers.uploadImg) // 上传图片
 
-router.get('/getImages', controllers.getImages) // 获取图片
+router.get('/getImages', controllers.getImages) // 获取图片列表
+
+router.get('/getImageDetail', controllers.getImageDetail) // 获取单个图片详情
+
+router.delete('/deleteImage', controllers.deleteImage) // 删除单个图片详情
 
 module.exports = router
