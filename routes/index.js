@@ -6,7 +6,7 @@ const controllers = require('../controllers')
 
 router.get('/getGoods', controllers.getGoods) // 获取商品列表
 
-router.post('/addGood', controllers.addGood) // 添加商品
+router.post('/addGoods', controllers.addGood) // 添加商品
 
 router.delete('/deleteGood', controllers.deleteGood) // 删除商品
 
@@ -22,5 +22,10 @@ router.delete('/deleteImage', controllers.deleteImage) // 删除单个图片详�
 
 router.get('/getGoodsMother', controllers.getGoodsMother) // 获取商品列表
 
-router.post('/addGoodMother', controllers.addGoodMother) // 添加商品
+router.post('/addGoodsMother', controllers.addGoodMother) // 添加商品
+
+router.delete('/deleteGoodMother', controllers.deleteGoodMother) // 删除商品
+
+router.put('/updateGoodMother', controllers.updateGoodMother) // 编辑商品
+
 module.exports = router
