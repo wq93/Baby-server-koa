@@ -1,4 +1,4 @@
-const {Goods: GetGoods} = require('../db')
+const {GoodsMother: GetGoods} = require('../db')
 module.exports = async (ctx, next) => {
   let {sort, pageSize, pageNum, keyword} = ctx.request.query
   let skip = Number((pageNum - 1) * pageSize)

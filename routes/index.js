@@ -20,4 +20,7 @@ router.get('/getImageDetail', controllers.getImageDetail) // 获取单个图片�
 
 router.delete('/deleteImage', controllers.deleteImage) // 删除单个图片详情
 
+router.get('/getGoodsMother', controllers.getGoodsMother) // 获取商品列表
+
+router.post('/addGoodMother', controllers.addGoodMother) // 添加商品
 module.exports = router
